@@ -1,0 +1,356 @@
+/* GLOBAL */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #141414, #1c1c1c);
+    color: white;
+}
+
+/* NAVBAR */
+.navbar {
+    
+    font-size: 28px;
+    color: red;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* HERO SECTION */
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* BACKGROUND IMAGE */
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: 0;
+
+    filter: brightness(70%) blur(2px);
+}
+
+/* DARK OVERLAY */
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.5);
+
+    z-index: 1;
+}
+
+/* CONTENT ON TOP */
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+p.hero-content {
+    max-width: 200px;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+/* TEXT */
+.hero h1 {
+    font-size: 50px;
+    margin-top: 1px;
+}
+
+.hero p {
+   
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #ccc;
+}
+/* SUBTITLE TEXT */
+.subtitle {
+    font-size: 18px;
+    color: #ddd;
+
+    margin-bottom: 20px;
+
+    /* move upwards */
+    margin-top: -30px;
+
+    /* better font */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    letter-spacing: 0.5px;
+}
+/* SEARCH BOX */
+.search-box {
+    display: flex;
+    gap: 10px;
+}
+
+/* DROPDOWN */
+select {
+    padding: 12px;
+    width: 350px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+}
+
+/* BUTTON */
+button {
+    padding: 12px 20px;
+    background: red;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #e50914;
+}
+/* LOGO ON HERO IMAGE */
+.hero-logo {
+    position: absolute;
+    top: 20px;
+    left: 10%;
+    transform: translateX(-50%);
+
+    height: 100px;
+    z-index: 3;
+}
+/* SEARCH INPUT */
+#movieInput {
+    padding: 12px;
+    width: 350px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+}
+
+#suggestions {
+    position: absolute;
+    background: white;
+    color: black;
+    width: 350px;
+    max-height: 200px;
+    overflow-y: auto;
+    border-radius: 5px;
+    margin-top: 5px;
+    z-index: 5;
+}
+
+/* EACH ITEM */
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestion-item:hover {
+    background: #eee;
+}
+/* GRID LAYOUT */
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+/* MOVIE CARD */
+.movie-card {
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.movie-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+}
+
+.movie-card p {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* TITLE */
+.section-title {
+    text-align: center;
+    margin-top: 20px;
+}
+/* NAVBAR LAYOUT */
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 15px 30px;
+    background: rgba(23,23,23)
+}
+
+/* LOGO LEFT */
+.nav-logo {
+    height: 100px;
+    margin-left: 750px;
+}
+
+/* TITLE */
+.nav-title {
+    color: black;
+    font-size: 28px;
+    font-weight: bold;
+}
+/* TOAST MESSAGE */
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #111;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== FULL BACKGROUND ===== */
+.auth-body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.auth-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url('../images/hero.jpg') center/cover no-repeat;
+    filter: blur(8px);
+    z-index: -1;
+}
+
+/* CENTER CONTAINER */
+.auth-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CARD */
+.auth-card {
+    width: 380px;
+    padding: 40px;
+    border-radius: 15px;
+
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(20px);
+
+    text-align: center;
+    color: white;
+
+    box-shadow: 0 0 40px rgba(0,0,0,0.7);
+}
+
+/* LOGO */
+.auth-logo {
+    width: 150px;
+    margin-bottom: 15px;
+}
+
+/* TEXT */
+.auth-card h2 {
+    margin-bottom: 5px;
+}
+
+.auth-sub {
+    color: #bbb;
+    margin-bottom: 25px;
+}
+
+/* INPUT GROUP */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+/* INPUT */
+.input-group input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+/* LABEL (INSIDE INPUT) */
+.input-group label {
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    color: #aaa;
+    font-size: 14px;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+/* FLOAT EFFECT */
+.input-group input:focus + label,
+.input-group input:valid + label {
+    top: -8px;
+    left: 10px;
+    font-size: 12px;
+    color: red;
+    background: rgba(0,0,0,0.8);
+    padding: 0 5px;
+}
+
+/* BUTTON */
+.auth-card button {
+    width: 100%;
+    padding: 14px;
+    background: red;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.auth-card button:hover {
+    background: #e50914;
+}
+
+/* SWITCH TEXT */
+.auth-switch {
+    margin-top: 15px;
+}
+
+.auth-switch a {
+    color: red;
+    text-decoration: none;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Popcorn & Scripts</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+<div id="toast" class="toast">⭐ Rating saved successfully!</div>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+
+    if (urlParams.get("success") === "1") {
+        const toast = document.getElementById("toast");
+        toast.classList.add("show");
+
+        setTimeout(() => {
+            toast.classList.remove("show");
+        }, 3000);
+    }
+</script>
+<div class="navbar">
+    <img src="{{ url_for('static', filename='images/logo.png') }}" class="nav-logo">
+</div>
+
+<div class="container">
+
+<h2 class="section-title">Recommended Movies</h2>
+
+<!--  UPDATED CLASS NAME -->
+<div class="movies-grid">
+
+{% for movie in recommendations %}
+
+<div class="movie-card">
+    <form action="/rate" method="POST">
+    <input type="hidden" name="movie" value="{{ movie.title }}">
+    
+    <select name="rating">
+        <option value="5">⭐ 5</option>
+        <option value="4">⭐ 4</option>
+        <option value="3">⭐ 3</option>
+        <option value="2">⭐ 2</option>
+        <option value="1">⭐ 1</option>
+    </select>
+
+    <button type="submit">Rate</button>
+</form>
+
+<a href="/movie/{{ movie.title }}">
+
+<img src="{{ movie.poster }}" alt="{{ movie.title }}">
+
+<p>{{ movie.title }}</p>
+
+</a>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+</body>
+</html>

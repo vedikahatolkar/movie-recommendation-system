@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Popcorn & Scripts</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<!-- HERO SECTION -->
+<div class="hero">
+
+    <!-- BACKGROUND IMAGE -->
+    <img src="{{ url_for('static', filename='images/hero.jpg') }}" class="hero-bg">
+
+    <!-- LOGO OVER IMAGE -->
+    <img src="{{ url_for('static', filename='images/logo.png') }}" class="hero-logo">
+
+    <!-- CONTENT -->
+    <div class="hero-content">
+
+        <h1>Find Movies You'll Love</h1>
+        <p class="subtitle">Discover personalized recommendations instantly</p>
+           
+        <!-- ✅ ONLY ONE FORM (SEARCH BAR) -->
+        <form action="/recommend" method="POST" class="search-box">
+
+            <div class="search-container">
+                <input type="text" id="movieInput" name="movie" placeholder="Search movies..." autocomplete="off">
+                <div id="suggestions"></div>
+            </div>
+
+            <button type="submit">Recommend</button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- MOVIES LIST FOR JS -->
+<script type="application/json" id="moviesData">
+{{ movies | tojson | safe }}
+</script>
+<script>
+    const movies = JSON.parse(document.getElementById('moviesData').textContent);
+</script>
+
+<!-- SEARCH SCRIPT -->
+<script src="{{ url_for('static', filename='js/search.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+flask
+pandas
+numpy
+scikit-learn
+joblib
+flask_sqlalchemy
+flask_login
+requests
+dotenv

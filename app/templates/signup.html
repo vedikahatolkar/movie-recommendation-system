@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup - Popcorn & Scripts</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="auth-body">
+
+<div class="auth-bg"></div>
+
+<div class="auth-container">
+
+    <div class="auth-card">
+
+        <img src="{{ url_for('static', filename='images/logo.png') }}" class="auth-logo">
+
+        <h2>Create your account</h2>
+        <p class="auth-sub">Join Popcorn & Scripts 🎬</p>
+
+        <form method="POST">
+
+            <div class="input-group">
+                <input type="text" name="username" required>
+                <label>Username</label>
+            </div>
+
+            <div class="input-group">
+                <input type="password" name="password" required>
+                <label>Password</label>
+            </div>
+
+            <button type="submit">Sign Up</button>
+
+        </form>
+
+        <p class="auth-switch">
+            Already have an account? <a href="/login">Login</a>
+        </p>
+
+    </div>
+
+</div>
+
+</body>
+</html>
